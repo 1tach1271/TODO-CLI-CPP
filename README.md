@@ -1,96 +1,50 @@
 # Todo CLI
 
-Todo CLI is a simple command line application written in C++ that allows users to manage a list of tasks directly from the terminal. The program stores tasks in a file and allows users to add, remove, and rearrange them easily.
+A simple **C++ command-line Todo application** to manage tasks from the terminal.
 
-## How it Works
+## Features
 
-The program keeps all tasks in a file named `.todo.db` located in the user's home directory.  
-Each time the program runs, it reads the tasks from this file, applies the requested command, and then saves the updated list back to the file.
+* Add new tasks
+* Mark tasks as completed
+* Swap task positions
+* Automatically saves tasks in `~/.todo.db`
 
-If the file cannot be opened for writing, the program prints an error message.
+## Build
 
-Default file location:
-
-/home/<username>/.todo.db
-
-## Compilation
-
-The project can be compiled using GCC.
-
-Run:
-
+```bash
 make
-
-This will generate the executable file `todo`.
+```
 
 ## Usage
 
-### Display Tasks
-
-Running the program without any arguments shows all tasks currently stored.
-
-Example:
-
+```bash
 ./todo
+```
 
-Output example:
+Display all tasks.
 
-1: Feed the cat  
-2: Buy groceries  
-3: Clean the floors
+```bash
+./todo add Buy groceries
+```
 
-### Add a Task
+Add a new task.
 
-To add a new task, use the `add` command followed by the task description.
+```bash
+./todo swap 1 3
+```
 
-Example:
+Swap two tasks.
 
-./todo add Feed the dog
-
-Output:
-
-1: Feed the cat  
-2: Buy groceries  
-3: Clean the floors  
-4: Feed the dog
-
-### Swap Two Tasks
-
-The `swap` command exchanges the positions of two tasks.
-
-Example:
-
-./todo swap 2 4
-
-Output:
-
-1: Feed the cat  
-2: Feed the dog  
-3: Clean the floors  
-4: Buy groceries
-
-### Mark a Task as Done
-
-The `done` command removes a task from the list once it is completed.
-
-Example:
-
+```bash
 ./todo done 2
+```
 
-Output:
+Remove a completed task.
 
-1: Feed the cat  
-2: Clean the floors  
-3: Buy groceries
+## Storage
 
-### Invalid Commands
+Tasks are stored locally in:
 
-If an incorrect command is entered, the program ignores it and no changes are made to the task list.
-
-## Language Used
-
-C++
-
-## Author
-
-Shashi Yadav
+```text
+~/.todo.db
+```
